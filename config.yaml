@@ -1,0 +1,50 @@
+audio:
+  hop_length: 2400
+  max_audio_length: 3.0
+  mel_time_frames: 60
+  n_fft: 2048
+  n_mels: 128
+  sample_rate: 48000
+data:
+  csv_dir: ./data/csv/
+  label_file: ./data/Lung_fun_label.csv
+  root: ./
+  wav_dir: ./data/wav
+data_augmentation:
+  augmentation_probability: 0.0
+  enabled: false
+  time_shift_range: 0.05
+  time_stretch_range: 0.1
+device: auto
+fev1:
+  fev1_time: 1.0
+  method: integration
+model:
+  dropout: 0.4
+  hidden_dim: 128  # 从96增加到128，提升LSTM容量（约33%增加）
+  input_dim: 128
+  num_layers: 3    # 保持2层LSTM
+  output_dim: 60
+output:
+  log_dir: output
+  model_dir: output
+  result_dir: output/results
+  root: output
+preprocessing:
+  batch_size: 16
+  sequence_length: 60
+random_seed: 3
+training:
+  epochs: 300
+  learning_rate: 0.002
+  loss_function: mae
+  loss_weights:
+    flow_weight: 2.0
+    ratio_weight: 1.0
+  lr_scheduler:
+    factor: 0.5
+    min_lr: 1.0e-06
+    patience: 10
+    type: ReduceLROnPlateau
+  patience: 30
+  weight_decay: 5e-05

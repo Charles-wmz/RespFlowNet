@@ -2,6 +2,10 @@
 
 This repository contains a CNN-LSTM pipeline for predicting respiratory flow curves from audio (mel spectrograms). The model uses a contrastive gender encoder, dynamic memory enhancement, and physics-informed loss (FVC/FEV1 integral consistency). It supports 5-fold cross-validation and derives FVC/FEV1/PEF from predicted flow via integration.
 
+## Datasets
+
+Due to data privacy and protection protocols, we cannot disclose all the data. We are providing 10 samples for reference only.
+
 ## Features
 
 - **Full model**: Contrastive learning gender encoder + dynamic memory network + gender input
@@ -60,3 +64,4 @@ Results under `Config.OUTPUT_DIR` (e.g. `output/run_name/`): per-fold models, lo
 ## License
 
 Use and modify as needed. If you use this code in research, please cite the associated paper or project.
+
